@@ -1,0 +1,26 @@
+A Certification authority is an entity entrusted to issue certificates.
+These certificates verify the identity and other attributes of the certificate subject.
+
+Hierarchies include a root CA and one or more subordinate CAs
+	-Usage
+	-Organizational divisions
+	-Geo divisions
+	-Load balancin
+	-High Availability
+	-Restrict admin access
+
+Internal CA and external CAs
+
+A certificate is a digital file which consists of:
+	-Public keys are distributed to all clients who request the key.
+	-Private keys are stored only on the computer from which the certificate was requested
+	
+Certificate templates:
+	-Define what certificates can be issued by the CAs.
+	-Define certificates used for various purposes
+	-Define which security principals have permissions to read, enroll and configure the template
+
+Options for enrollment:
+	-Web
+	-Manual/Offline
+	-Automatic

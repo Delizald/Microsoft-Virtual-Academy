@@ -1,0 +1,38 @@
+FS. Identitify federation is a process that enables distributed identification, authentication and authorization across
+organizationa and platform boundaries
+
+An identity Federation:
+	-Requires trust between two orgs
+	-Allows control of resource access and user and group accounts.
+	
+Benefits
+	-Security and control over authentication
+	-Regulatory compliance
+	-Interoperbility with heterogenous systems
+	-Works with AD DS and AD LDS
+	-Extends AD DS to the internet
+	
+-Components
+	-AD DS domain controllers
+	-Account Federation server
+	-Service Proxy
+	-Resource Federation server
+	-Resource Federation Server Proxy
+	-AD FS Web Agent
+	
+To implement FS:
+	-Create a trust policy for both the resource and account partners
+	-Create organizationa claims
+	-Create account stores
+	-Create and configure applications
+	
+Trust policies are configuration settings that define how to config a federated trust and how the federated trust works
+	-token lifetime
+	-federation service URI
+	-federation service endpoint URL
+	-option to use a Windows trust relationship
+
+FS claims
+	-Identity: UPN (user principal name), E-amil, Commonname
+	-Group(Indicates membership in a group or role)
+	Custom(Indicates a claim that contains custom information about a user for example an employee ID num)
