@@ -1,0 +1,102 @@
+Lesson 1: Active Directory DS.
+	-LDAP
+	-Based on TCP/IP
+	-x.500 standard
+	-client-server model
+
+two components in Authentication(who you are. Process ):
+	-Interactive logon
+	-Network auth.
+
+AD DS features:
+	-Centralized Directory.
+	-Single sign-on access.
+	-Integrated security.
+	-Scalability
+	-Common Management interface
+	-Single location for assigning access to shared network resources
+	-Options for configuring security policies that apply to all users and pc's (Group Policy)
+	
+Requirements to install AD DS.
+	-TCP/IP.
+	-Credentials.
+	-DNS. AD DS domain names must be DNS domain names. 
+
+DNS zones can be stored in AD DS as AD integrated zones.
+
+AD DS is composed of:
+	-Physical components
+		-Data Store
+		-Domain Controllers
+		-Global catalog server
+		-Read-Only Domain Controller
+	-Logical Components
+		-Partitions
+		-Schema
+		-Domains
+		-Domain tress
+		-Forests
+		-Sites
+		Organizational Units
+		
+A Domain Controller is a server with the AD DS tole installed. Domain Controllers:
+	-Host a copy of the AD DS directory sotre
+	-provide authentication and authorization services
+	-Replicate updates to other domain controllers in the domain and the forest
+	-Allow administrative access to manage user accounts and network resources
+
+Global catalog servers are DC that store a copy of the gloal catalog:
+	-Contains a copy of all AD DS objects in a forest that includes
+	some of the attributes for each object in a forest.
+	-Improves efficency of object searches by avoiding unnecesary referrals to domain controllers.
+	-Required for users to log on to domain.
+
+AD DS Data store contains the database files and processes that store.
+	-Consists of the Ntds.dit file.
+	-Stored by default in th %SystemRoot%\NTDS folder on all DC.
+	-Accesible only through DC processes and protocols
+
+AD DS Replication copies all updates of the AD DS database to all other DCs in domain or forest.
+	-Ensures all DCs have the same info.
+	-Use a multimaster replication model.
+	-Can be managed by creating AD DS sites.
+	-Topology is created automatically as new DCs are added to domain.
+
+AD DS site is used to represent network segments.
+	-Associated with IP subnets.
+	-Used to manage replication traffic.
+	-Manage client logon traffic.
+	-Used by site aware applications such as DFS or Exchange.
+	-Used to assign group policy to all users and computers.
+	
+AD DS Schema
+	-Defines every type of object that can be stored in the directory
+	-Enforce rules regarding object creation and configuration
+	
+Domains are used to group and manage objects
+	-Administrative boundary for applying policies.
+	-Replication boundary for replicating data between DCs.
+	-An authentication and authorization boundary that provides a way to limit access to resources.
+
+A Domain Tree is a hierarchy of domains in AD DS.
+	-Share contiguous namespace with the parent domain.
+	-Can have additional child domains.
+	-Create a two-way transistive trust with other domains.
+
+Forests are a collection of one or mre domain trees.
+	-Share a common schema.
+	-Share a common configuration partition.
+	-Share a common global catalog to enable searching.
+	-Enable trusts between all domains in a forest.
+	-Share enterprise admins and schema admins groups.
+
+Organizational Units OUs are AD containers that contain users, groups, computers and others OUs
+	-represent organization hierarchically and logically.
+	-manage collection of objects.
+	-delegate permissions to administer groups of objects.
+	-apply policies.
+
+Trusts provide a mechanism for users to gain access to resources in another domain
+	-Directional: direction flows from trusting domain to the trusted domain.
+	-Transitive: Extended beyond a two-domain trust to include other trusted domains.
+
