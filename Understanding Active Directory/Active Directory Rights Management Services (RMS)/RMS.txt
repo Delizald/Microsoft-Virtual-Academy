@@ -1,0 +1,41 @@
+Is an information protection technology that works with AD RMS-enabled applications to help safeguard digital information
+from unauthorizd use.
+
+Can be used to:
+	-Restrict access to an organization's intellectial property
+	-Limit the actions users can perform on content
+	-Limit the risk of content being exposed outside the organization.
+	
+Options for using AD RMS
+	-Protect sensitive files
+	-Do-not-forward/print e-mail
+	-Help Safeguard intranet content
+	-Indentity Federation Support
+
+AD RMS certificates and licenses include:
+	-Lockbox
+	-Machine certificates
+	-Rights account certificate
+	-Client licensor certificate
+	-Publishing licenses
+	-Use license
+	-Revocation list
+
+Installation requirements:
+	-Server must be a member of the domain
+	-Additional Roles requires: 
+		-IIS
+		-WPAS (Win Process Activation Service)
+		-Message Queueing
+		-Windows Internal Database
+	-Service Account
+	-Microsoft SQL Server
+	
+Exclusion policies prevent users, applications, lockboxed and OS from
+acquiring certificates and licenses from the servers in the cluster
+Exclusion can be enabled by:
+	-User ID
+	-Public Key String
+	-Application by Version
+	-Lockbox Version
+	-Windows Version

@@ -1,0 +1,70 @@
+AD LDS is a hierarchical file based directory store
+Uses the Extensible Storage Engine for file storage (ESE)
+Can be accessed via LDAP
+
+Partition types:
+	-Configuration
+	-Schema
+	-Application
+
+Tools
+	-Wizard
+		-Create a new instance od LDS
+		-Create a replica of LDS instance
+	-ADSIEdit
+		-Modifying and viewing data
+	-LDP
+		-Creating application partition instances
+		-Modifying data
+		-Viewing data
+	-Ldifde or Csvde
+		-Importgind and exporting data
+	-Dsacls
+		-View or set permission
+	-AdamSync
+		-Syncronze and instance of AD DS to AD LDS
+	-ADSChemaAnalyzer
+		-Used in migrating the AD schema to ADAM
+		
+
+AD LDS Schema defines the types of objects and data that can be created and stored in a LDS instance using object classes and attributes
+
+AD LDS instance is a running copy of AD LDS service that contains is own communication interface and directory store
+
+Application partiions holds the data that is used by the application.
+Multipple application directory partitions can be created in each LDS instance; each partition would share
+a single set of configuration and schema partitions
+
+Roles
+	-Administrators: Full access to all partitions
+	-Readers: Read access to the partition
+	-Users: none
+	-Instances
+	
+Why replication
+	-High Availability
+	-Load Balancing
+	-Geographic limitations
+	
+Similarities with AD DS
+	-Support LDAP connections
+	-Multimaster replication
+	-Support delegated administration
+	-Extensible Storage Engine for the database store
+
+LDs can:
+	-Capable of multiple instances running on one server
+	-runs on nondomain controllers
+	-does not require DNS
+	
+LDS can't (but DS can):
+	-Group Policy
+	-Global Catalog functions
+	-Kerberos V5 protocol authentication
+	-Full feature administrator tools
+	-Automatica failover of services
+	
+To integrate AD DS and AD LDS:
+	-Prepare schema for synchronization
+	-Prepare the configuration for AdamSync
+	-Run AdamSync
