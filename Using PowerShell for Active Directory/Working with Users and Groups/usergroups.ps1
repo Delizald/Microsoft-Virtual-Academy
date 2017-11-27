@@ -121,3 +121,10 @@ New-ADComputer MP3Server
 Get-ADComputer MP3Server
 Remove-ADComputer MP3Server -WhatIf
 Get-ADComputer MP3Server | Remove-ADObject -Recursive
+
+#Delete objects by Batches
+do{
+    $query = Get-ADObject -LDAPFilter '(&(objectClass=foo)(attribute=value))' -Server dc1.company,com
+    $query = Remove-ADObject -Confirm:$False -Recurse
+    Start-Sleep -Seconds (15*60)
+}while($query)
