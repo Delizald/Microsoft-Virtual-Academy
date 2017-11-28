@@ -100,3 +100,23 @@ Get-ADObject -Filter 'CN -like "*bob*"'
 
 Get-ADUser -LDAPFilter '(&(badpwdcount>=5)(badpwdcount=*)'
 Get-ADUser -Filter 'badpwdcount -ge 5'
+
+#Demonstrating the -RecursiveMatch
+#Create group
+New-ADGroup GroupLevel1 -GroupScope Global
+New-ADGroup GroupLevel2 -GroupScope Global
+
+#Nest Members
+Add-ADGroupMember -Identity Grouplevel1 -Members GroupLevel2
+#View the results
+Get-ADGroup -Filter 'name -like "GroupLevel*"' -Properties MemberOf, Members | ft Name, Members
+Get-ADUser GroupLevel2 -Properties MemberOf | ft Name, MemberOf -AutoSize
+
+Get-ADUser `
+    -Filter 'memberOf -RecursiveMatch "CN=GroupLevel1,CN=Users,DC=company,DC=COM"' `
+    -SearchBase "CN=guest,CN=Users,DC=company,DC=com"
+
+#Recursively get nested member of Domain Admins
+Get-ADUser `
+    -Filter "memberOf -RecursiveMatch '$((Get-ADGroup "Domain Admins").DistinguishedName)'" `
+    -SearchBase $((Get-ADUser Guest).DistinguishedName)
